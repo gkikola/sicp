@@ -1,12 +1,13 @@
 ;; Exercise 1.11
 ;;
+;; Recursion versus iteration
+
 ;; f is defined by
 ;;   f(n) = n  for  n < 3
 ;;   f(n) = f(n - 1) + 2 * f(n - 2) + 3 * f(n - 3)  for  n >= 3
 ;;
 ;; (f-recursive n) computes f(n) using a recursive process, while
 ;; (f-iterative n) computes f(n) using an iterative process.
-
 (define (f-recursive n)
   (cond
    ((< n 3) n)

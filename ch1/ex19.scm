@@ -1,7 +1,8 @@
 ;; Exercise 1.19
 ;;
-;; (fib n) computes the nth Fibonacci number in Theta(log n) steps.
+;; An efficient Fibonacci number generator
 
+;; (fib n) computes the nth Fibonacci number in Theta(log n) steps.
 (define (fib n)
   (fib-iter 1 0 0 1 n))
 

@@ -1,6 +1,6 @@
 ;; Exercise 1.28
 ;;
-;; Miller-Rabin test for primality.
+;; Miller-Rabin test for primality
 
 ;; Modified expmod, returns 0 if non-trivial square root of one (mod
 ;; m) is found.

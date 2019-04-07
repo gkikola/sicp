@@ -1,6 +1,6 @@
 ;; Exercise 1.8
 ;;
-;; Using Newton's method to find cube roots.
+;; Using Newton's method to find cube roots
 
 (define (cbrt-iter guess x)
   (define new-guess (improve guess x))

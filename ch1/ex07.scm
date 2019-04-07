@@ -1,7 +1,7 @@
 ;; Exercise 1.7
 ;;
 ;; Using Newton's method to compute square roots with better accuracy
-;; for large and small numbers.
+;; for large and small numbers
 
 (define (sqrt-iter guess x)
   (define new-guess (improve guess x))
