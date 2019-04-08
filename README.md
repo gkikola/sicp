@@ -17,9 +17,9 @@ Running
 -------
 
 Each source file can be executed using a Scheme interpreter. The
-implementation that I am using is [MIT
-Scheme](https://www.gnu.org/software/mit-scheme/), but other
-implementations should also work.
+implementation that I am using is [GNU
+Guile](https://www.gnu.org/software/guile/), but other implementations
+should also work.
 
 
 Copyright and License
