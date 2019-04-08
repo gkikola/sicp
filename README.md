@@ -12,6 +12,12 @@ ask the reader to write some code are included; exercises in
 mathematical proof as well as exercises asking the reader to examine
 or run a given code listing are for the most part omitted.
 
+In writing these solutions, I avoid using special forms before the
+point at which they are introduced in the book. This allows someone
+who is reading through the book and learning Scheme for the first time
+to follow my solutions without having to deal with unfamiliar
+constructs.
+
 
 Running
 -------
