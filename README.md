@@ -49,10 +49,10 @@ loaded file.
 Helpful Links
 -------------
 
-* [The SICP Web
-Site](https://mitpress.mit.edu/sites/default/files/sicp/index.html)
 * [Structure and Interpretation of Computer Programs (Second Edition):
 Full text](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html)
+* [The SICP Web
+Site](https://mitpress.mit.edu/sites/default/files/sicp/index.html)
 * Some Scheme implementations:
   - [MIT/GNU Scheme](https://www.gnu.org/software/mit-scheme/)
   - [GNU Guile](https://www.gnu.org/software/guile/)
