@@ -25,7 +25,7 @@ should also work.
 Copyright and License
 ---------------------
 
-All code is copyright &copy; 2019 Greg Kikola.
+All original code is copyright &copy; 2019 Greg Kikola.
 
 Unless otherwise stated within the file, the code in this repository
 is licensed under the [Apache License
