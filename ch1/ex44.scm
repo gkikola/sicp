@@ -2,7 +2,7 @@
 ;;
 ;; Smoothing functions
 
-(load "ex43.scm")
+(load "../util/repeated.scm")
 
 (define dx 0.00001)
 
