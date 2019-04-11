@@ -37,3 +37,7 @@
 ;; Gets the area of a rectangle
 (define (area-rect rect)
   (* (width-rect rect) (height-rect rect)))
+
+;; Gets the perimeter of a rectangle
+(define (perimeter-rect rect)
+  (+ (* 2 (width-rect rect)) (* 2 (height-rect rect))))
