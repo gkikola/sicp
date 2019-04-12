@@ -11,7 +11,7 @@
 (define (lower-bound i) (car i))
 
 ;; Print an interval in the form:
-;; (lower, upper) = midpoint +/- tolerance.
+;; [lower, upper] = midpoint +/- tolerance.
 (define (print-interval i)
   (display "[")
   (display (lower-bound i))
