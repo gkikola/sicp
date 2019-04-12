@@ -13,11 +13,11 @@
 ;; Print an interval in the form:
 ;; (lower, upper) = midpoint +/- tolerance.
 (define (print-interval i)
-  (display "(")
+  (display "[")
   (display (lower-bound i))
   (display ", ")
   (display (upper-bound i))
-  (display ") = ")
+  (display "] = ")
   (display (/ (+ (lower-bound i) (upper-bound i)) 2.0))
   (display " +/- ")
   (display (/ (- (upper-bound i) (lower-bound i)) 2.0))
