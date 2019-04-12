@@ -2,7 +2,7 @@
 ;;
 ;; Interval arithmetic, continued
 
-(load "ex08.scm")
+(load "ex07.scm")
 
 ;; Modified division
 (define (div-interval i j)
