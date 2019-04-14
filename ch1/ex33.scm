@@ -2,14 +2,23 @@
 ;;
 ;; A filtered accumulator
 
-(load "../util/accumulate.scm")
 (load "../util/prime.scm")
 (load "../util/gcd.scm")
 (load "../util/square.scm")
 
-;; Same as accumulate from Exercise 1.32, except with a filter
-;; predicate taking one argument specifying which terms to include in
-;; the accumulation.
+;; Evaluates (term n) for each n from a to b, using the predicate next
+;; as an increment and combines the results using the predicate
+;; combiner taking two arguments. The initial base value is specified
+;; by null-value.
+(define (accumulate combiner null-value term a next b)
+  (define (iter a result)
+    (if (> a b)
+        result
+        (iter (next a) (combiner (term a) result))))
+  (iter a null-value))
+
+;; Same as accumulate above, except with a filter predicate taking one
+;; argument specifying which terms to include in the accumulation.
 (define (filtered-accumulate combiner null-value term a next b filter)
   (define (filtered-term n)
     (if (filter n) (term n) null-value))

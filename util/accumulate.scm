@@ -1,11 +1,8 @@
-;; Evaluates (term n) for each n from a to b, using the predicate next
-;; as an increment and combines the results using the predicate
-;; combiner taking two arguments. The initial base value is specified
-;; by null-value.
-
-(define (accumulate combiner null-value term a next b)
-  (define (iter a result)
-    (if (> a b)
-        result
-        (iter (next a) (combiner (term a) result))))
-  (iter a null-value))
+;; Calls op on each term in the sequence, using initial as the initial
+;; value of the result. op should take two arguments, one for the
+;; current value in the sequence and one for the current result.
+(define (accumulate op initial sequence)
+  (if (null? sequence)
+      initial
+      (op (car sequence)
+          (accumulate op initial (cdr sequence)))))
