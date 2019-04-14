@@ -2,7 +2,7 @@
 ;;
 ;; List operations
 
-(load "../util/accumulate-seq.scm")
+(load "../util/accumulate.scm")
 (load "../util/enumerate.scm")
 
 (define (map p sequence)
