@@ -5,6 +5,7 @@
 (load "../util/accumulate.scm")
 (load "../util/prime.scm")
 (load "../util/gcd.scm")
+(load "../util/square.scm")
 
 ;; Same as accumulate from Exercise 1.32, except with a filter
 ;; predicate taking one argument specifying which terms to include in
@@ -17,7 +18,6 @@
 ;; Some useful functions.
 (define (ident x) x)
 (define (inc n) (+ n 1))
-(define (square x) (* x x))
 
 ;; Sum of the squares of prime numbers from a to b.
 (define (sum-squared-primes a b)

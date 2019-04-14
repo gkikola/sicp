@@ -1,3 +1,5 @@
+(load "square.scm")
+
 ;; (expmod base exp m) computes b raised to the exp power, modulo m.
 (define (expmod base exp m)
   (cond ((= exp 0) 1)

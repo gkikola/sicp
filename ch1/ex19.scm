@@ -2,6 +2,8 @@
 ;;
 ;; An efficient Fibonacci number generator
 
+(load "../util/square.scm")
+
 ;; (fib n) computes the nth Fibonacci number in Theta(log n) steps.
 (define (fib n)
   (fib-iter 1 0 0 1 n))

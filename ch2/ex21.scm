@@ -2,7 +2,7 @@
 ;;
 ;; Squaring elements in a list
 
-(define (square x) (* x x))
+(load "../util/square.scm")
 
 ;; Squares each element in the given list.
 (define (square-list items)

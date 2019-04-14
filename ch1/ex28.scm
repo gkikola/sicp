@@ -2,6 +2,8 @@
 ;;
 ;; Miller-Rabin test for primality
 
+(load "../util/square.scm")
+
 ;; Modified expmod, returns 0 if non-trivial square root of one (mod
 ;; m) is found.
 (define (expmod base exp m)

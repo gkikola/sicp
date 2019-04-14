@@ -2,7 +2,7 @@
 ;;
 ;; Squaring trees
 
-(define (square x) (* x x))
+(load "../util/square.scm")
 
 ;; Square the leaves of a tree.
 (define (square-tree tree)

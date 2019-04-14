@@ -1,3 +1,5 @@
+(load "square.scm")
+
 ;; (prime? n) tests whether n is prime for integers n > 1.
 (define (prime? n)
   (= n (smallest-divisor n)))
