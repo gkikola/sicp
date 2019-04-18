@@ -15,4 +15,4 @@
 
 ;; Vector subtraction.
 (define (sub-vect v w)
-  (add-vect v (scale-vect w -1)))
+  (add-vect v (scale-vect -1 w)))
