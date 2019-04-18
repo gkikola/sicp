@@ -9,7 +9,7 @@
              (+ (ycor-vect v) (ycor-vect w))))
 
 ;; Scalar multiplication.
-(define (scale-vect v s)
+(define (scale-vect s v)
   (make-vect (* s (xcor-vect v))
              (* s (ycor-vect v))))
 
