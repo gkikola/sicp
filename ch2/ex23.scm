@@ -1,4 +1,4 @@
-;; Exercise 2.22
+;; Exercise 2.23
 ;;
 ;; For each
 
