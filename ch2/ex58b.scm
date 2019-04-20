@@ -1,0 +1,93 @@
+;; Exercise 2.58b
+;;
+;; Differentiation with infix notation
+
+(load "../util/symbolic-expr/deriv.scm")
+(load "../util/symbolic-expr/vars.scm")
+
+;; Constructors.
+(define (make-sum a1 a2)
+  (cond ((=number? a1 0) a2)
+        ((=number? a2 0) a1)
+        ((and (number? a1) (number? a2) (+ a1 a2)))
+        (else (list a1 '+ a2))))
+(define (make-product m1 m2)
+  (cond ((or (=number? m1 0) (=number? m2 0)) 0)
+        ((=number? m1 1) m2)
+        ((=number? m2 1) m1)
+        ((and (number? m1) (number? m2)) (* m1 m2))
+        (else (list m1 '* m2))))
+(define (make-exponentiation b e)
+  (cond ((=number? e 0) 1)
+        ((=number? e 1) b)
+        ((and (number? b) (number? e) (expt b e)))
+        (else (list b '** e))))
+
+;; Determines if a list contains the given symbol.
+(define (contains? list symbol)
+  (cond ((null? list) #f)
+        ((pair? list) (if (eq? (car list) symbol)
+                          #t
+                          (contains? (cdr list) symbol)))
+        (else (eq? list symbol))))
+
+;; Predicates.
+(define (=number? exp num)
+  (and (number? exp) (= exp num)))
+(define (sum? x)
+  (and (pair? x)
+       (contains? x '+)))
+(define (product? x)
+  (and (pair? x)
+       (not (sum? x))
+       (contains? x '*)))
+(define (exponentiation? x)
+  (and (pair? x)
+       (not (sum? x))
+       (not (product? x))
+       (contains? x '**)))
+
+;; Splits a list into sublists between the given symbol.
+(define (split-list list symbol)
+  (cond ((null? list) (cons '() '()))
+        ((not (pair? list)) (if (eq? list symbol)
+                                (cons '() '())
+                                (cons list '())))
+        ((eq? (car list) symbol) (cons '() (cdr list)))
+        (else (let ((rest (split-list (cdr list) symbol)))
+                (cons (append (cons (car list) '()) (car rest))
+                      (cdr rest))))))
+
+;; Simplify an expression.
+(define (simplify exp)
+  (cond ((not (pair? exp)) exp)
+        ((null? (cdr exp)) (simplify (car exp)))
+        ((sum? exp)
+         (let ((split (split-list exp '+)))
+           (make-sum (simplify (car split))
+                     (simplify (cdr split)))))
+        ((product? exp)
+         (let ((split (split-list exp '*)))
+           (make-product (simplify (car split))
+                         (simplify (cdr split)))))
+        ((exponentiation? exp)
+         (let ((split (split-list exp '**)))
+           (make-exponentiation (simplify (car split))
+                                (simplify (cdr split)))))
+        (else (error "Unknown operation"))))
+
+;; Selectors.
+(define (op-first op exp)
+  (cond ((not (pair? exp)) (error "Syntax error"))
+        ((eq? (cadr exp) op) (car exp))
+        (else (simplify (car (split-list exp op))))))
+(define (op-second op exp)
+  (cond ((not (pair? exp)) (error "Syntax error"))
+        ((eq? (cadr exp) op) (simplify (cddr exp)))
+        (else (simplify (cdr (split-list exp op))))))
+(define (addend s) (op-first '+ s))
+(define (augend s) (op-second '+ s))
+(define (multiplier p) (op-first '* p))
+(define (multiplicand p) (op-second '* p))
+(define (base e) (op-first '** e))
+(define (exponent e) (op-second '** e))
